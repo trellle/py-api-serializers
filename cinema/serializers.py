@@ -39,8 +39,9 @@ class MovieListSerializer(MovieSerializer):
     genres = serializers.SerializerMethodField()
 
     def get_actors(self, obj):
-        return [f"{actor.first_name} {actor.last_name}" for actor in obj.actors.all()]
-    
+        return [f"{actor.first_name} {actor.last_name}"
+                for actor in obj.actors.all()]
+
     def get_genres(self, obj):
         return [genre.name for genre in obj.genres.all()]
 
